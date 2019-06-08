@@ -33,6 +33,8 @@ class Container extends Component {
   }
   render() {
     const { [INPUT_ID]: searchVal } = this.state;
+    console.log('IMAGES');
+    console.log(this.state.images[0]);
     return (
       <form id="article-form">
         <Input

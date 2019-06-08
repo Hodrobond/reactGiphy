@@ -1,6 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-const ImageRow = ({ images }) => (
+const ImageRow = ({ images }) => {
+  console.log('IMAGES');
+  console.log(images);
+  return (
   <div className="image-row">
     {images.map(image => {
       <img
@@ -11,6 +14,7 @@ const ImageRow = ({ images }) => (
     })}
   </div>
 );
+}
 
 ImageRow.propTypes = {
   images: PropTypes.arrayOf(PropTypes.shape({
