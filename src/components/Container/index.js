@@ -7,10 +7,14 @@ class Container extends Component {
     this.state = {
       seo_title: ""
     };
-    this.handleChange = this.handleChange.bind(this);
+    this.onChange = this.onChange.bind(this);
+    this.onClick = this.onClick.bind(this);
   }
-  handleChange(event) {
+  onChange(event) {
     this.setState({ [event.target.id]: event.target.value });
+  }
+  onClick(event) {
+    console.log('onClick happened');
   }
   render() {
     const { seo_title } = this.state;
@@ -22,7 +26,8 @@ class Container extends Component {
           type="text"
           id="seo_title"
           value={seo_title}
-          handleChange={this.handleChange}
+          onChange={this.onChange}
+          onClick={this.onClick}
         />
       </form>
     );
