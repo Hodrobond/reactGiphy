@@ -9,8 +9,6 @@ const ImageGrid = ({ rowWidth, images }) => {
     fin[arrIndex].push(image);
     return fin;
   }, []);
-  console.log('SLICERS');
-  console.log(slicedImages);
   return (
     <div className="image-grid">
       {slicedImages.map(row => (

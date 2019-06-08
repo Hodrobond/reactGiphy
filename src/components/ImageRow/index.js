@@ -1,13 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
+import style from './ImageRow.css';
+
+console.log('STYLE:', style);
+
 const ImageRow = ({ images }) => {
-  console.log('IMAGES');
-  console.log(images);
-  console.log('IN IMAGE ROW');
   if (!images) return null;
-  console.log('actually rendering');
   return (
-  <div className="image-row">
+  <div className={style.ImageRow}>
     {images.map(image => (
       <img
         src={image.images.fixed_width.url}
