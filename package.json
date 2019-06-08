@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "ciBuild": "GIPHY_API_TOKEN=test npm run build",
     "build": "webpack --mode production"
   },
   "repository": {
