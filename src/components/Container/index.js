@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import Input from "../Input";
+
+const INPUT_ID = 'giphy_search';
 class Container extends Component {
   constructor() {
     super();
     this.state = {
-      seo_title: ""
+      [INPUT_ID]: ""
     };
     this.onChange = this.onChange.bind(this);
     this.onClick = this.onClick.bind(this);
@@ -13,19 +15,32 @@ class Container extends Component {
   onChange(event) {
     this.setState({ [event.target.id]: event.target.value });
   }
-  onClick(event) {
-    console.log('onClick happened');
+  async onClick(event) {
+    event.preventDefault();
+    const images = await this.getImages();
+    console.log('IMAGES');
+    console.log(images);
+    this.setState({
+      images,
+    })
+  }
+
+  async getImages() {
+    const searchVal = document.getElementById(INPUT_ID).value;
+    const giphyRes = await fetch(`http://api.giphy.com/v1/gifs/search?q=${searchVal}&api_key=${GIPHY_API_TOKEN}`);
+    const parsed = await giphyRes.json();
+    return parsed;
   }
   render() {
-    const { seo_title } = this.state;
+    const { [INPUT_ID]: searchVal } = this.state;
     return (
       <form id="article-form">
         <Input
           text="SEO title"
           label="seo_title"
           type="text"
-          id="seo_title"
-          value={seo_title}
+          id={INPUT_ID}
+          value={searchVal}
           onChange={this.onChange}
           onClick={this.onClick}
         />
