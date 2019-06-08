@@ -12,12 +12,12 @@ const ImageGrid = ({ rowWidth, images }) => {
   console.log('SLICERS');
   console.log(slicedImages);
   return (
-    <div className="form-group">
-      {slicedImages.map(row => {
+    <div className="image-grid">
+      {slicedImages.map(row => (
         <ImageRow
           images={row}
         />
-      })}
+      ))}
     </div>
   );
 };
